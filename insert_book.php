@@ -88,47 +88,51 @@ require_once './db.php';
     </style>
 </head>
 <body>
-    <h1 >Book Entry Results</h1>
-    
-    <div class="container">
-        <table>
-            <tr>
-                <th>ISBN</th>
-                <th>author</th>
-                <th>Title</th>
-                <th>Price</th>
-            </tr>
-            <?php
-                if($rows > 0) {
-            ?>
-            <tr>
-                <?php 
-                    foreach($rows as $row)  {
+    <div>
+        <button onclick="window.location='newbook.html'">Back</button>
+
+        <h1 >Book Entry Results</h1>
+        
+        <div class="container">
+            <table>
+                <tr>
+                    <th>ISBN</th>
+                    <th>author</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                </tr>
+                <?php
+                    if($rows > 0) {
                 ?>
+                <tr>
+                    <?php 
+                        foreach($rows as $row)  {
+                    ?>
+        
+                <td>
+                    <?php echo $row->isbn; ?>
+                </td>
     
-            <td>
-                <?php echo $row->isbn; ?>
-            </td>
-
-            <td>
-                <?php echo $row->author; ?>
-            </td>
-
-            <td>
-                <?php echo $row->title; ?>
-            </td>
-
-            <td>
-                <?php echo $row->price; ?>
-            </td>
-        
-            </tr>
-            <?php 
+                <td>
+                    <?php echo $row->author; ?>
+                </td>
+    
+                <td>
+                    <?php echo $row->title; ?>
+                </td>
+    
+                <td>
+                    <?php echo $row->price; ?>
+                </td>
+            
+                </tr>
+                <?php 
+                        }
+            
                     }
-        
-                }
-            ?>
-        </table>
+                ?>
+            </table>
+        </div>
     </div>
 
   
@@ -158,4 +162,5 @@ require_once './db.php';
 
 
 </body>
+
 </html>
